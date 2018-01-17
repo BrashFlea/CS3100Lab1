@@ -19,6 +19,8 @@ int main(int argc, char *argv[])
 	gethostname(hostname, 1024);
 	int pid = getpid();
 	int ppid = getppid();
+	char cwd [1024];
+	getcwd(cwd, sizeof(cwd));	
 
 	if (argc != 3)
 	{
@@ -52,6 +54,7 @@ int main(int argc, char *argv[])
 	printf("PID and PPID: %i/%i\n", pid, ppid);
 
 	// output on STDOUT "Program: <pathToThisProgram>"
+	printf("Program: %s\n", cwd);
 	
 	return 0;
 }
