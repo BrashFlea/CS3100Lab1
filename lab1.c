@@ -15,8 +15,10 @@ void usage(char *path) {
 int main(int argc, char *argv[])
 {
 	char *name;
-	char hostname[1024];
+	char hostname[1024]; 
 	gethostname(hostname, 1024);
+	int pid = getpid();
+	int ppid = getppid();
 
 	if (argc != 3)
 	{
@@ -47,6 +49,7 @@ int main(int argc, char *argv[])
 	printf("Hostname: %s\n", hostname); 
 
 	// output on STDOUT "PID and PPID: nnnnn/nnnnn"
+	printf("PID and PPID: %i/%i\n", pid, ppid);
 
 	// output on STDOUT "Program: <pathToThisProgram>"
 	
