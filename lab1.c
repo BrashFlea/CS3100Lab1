@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 	gethostname(hostname, 1024);
 	int pid = getpid();
 	int ppid = getppid();
+	//Assignment should probably be using cwd, but it only requires argv[0]
 	char cwd [1024];
 	getcwd(cwd, sizeof(cwd));	
 
@@ -53,8 +54,8 @@ int main(int argc, char *argv[])
 	// output on STDOUT "PID and PPID: nnnnn/nnnnn"
 	printf("PID and PPID: %i/%i\n", pid, ppid);
 
-	// output on STDOUT "Program: <pathToThisProgram>"
-	printf("Program: %s\n", cwd);
+	// output on STDOUT "Program: <pathToThisProgram>"	
+	printf("Program: %s\n", argv[0]);
 	
 	return 0;
 }
